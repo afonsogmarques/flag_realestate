@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public $table = 'users';
+
     use HasFactory, Notifiable;
 
     /**
@@ -20,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'phone'
     ];
 
     /**
@@ -28,7 +32,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 

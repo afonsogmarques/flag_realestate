@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateUsersTable extends Migration
 {
@@ -14,14 +15,19 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('email');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone', 9)->nullable();
+            $table->string('role')->default('customer');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::statement("ALTER TABLE users ADD CONSTRAINT chk_role CHECK (role IN ('customer', 'agent'));");
     }
 
     /**
