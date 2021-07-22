@@ -28,9 +28,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create', [
-            'roles' => Role::all()
-        ]);
+        return view('users.create', []);
     }
 
     /**
@@ -94,7 +92,8 @@ class UsersController extends Controller
             'password' => Hash::make($request->password),
             'email' => $request->input('email'),
             'address' => $request->input('address'),
-            'phone' => $request->input('phone')
+            'phone' => $request->input('phone'),
+            'role' => $request->input('role')
         ]);
 
         return redirect('/users');

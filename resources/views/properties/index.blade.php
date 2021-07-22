@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Properties') }}
+            {{ __('Imóveis') }}
         </h2>
     </x-slot>
     
     <button class='pt-10'>
-        <a href="properties/create" class='border-b-2 pb-2 border-dotted italic text-gray-500'>Add new property &rarr;</a>
+        <a href="properties/create" class='border-b-2 pb-2 border-dotted italic text-gray-500'>Novo imóvel &rarr;</a>
     </button>
 
     @foreach ($properties as $property)
@@ -17,13 +17,13 @@
                         @csrf @method('DELETE')
                         <div class='float-right'>
                             <button type='submit' class='border-b-2 pb-2 border-dotted italic text-red-500'>
-                                    Delete &rarr;
+                                    Apagar &rarr;
                             </button>
                         </div>
                     </form>
                     <div class='float-right'>
                         <a href="properties/{{ $property->id }}/edit" class='border-b-2 pb-2 border-dotted italic text-yellow-500'>
-                            Edit &rarr;
+                            Editar &rarr;
                         </a>
                     </div>
                     <div class="p-6 bg-white border-b border-gray-200">

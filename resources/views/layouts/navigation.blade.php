@@ -16,13 +16,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('properties.index')" :active="request()->routeIs('properties.index')">
-                        {{ __('Properties') }}
+                        {{ __('Imóveis') }}
                     </x-nav-link>
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
-                        {{ __('Users') }}
+                        {{ __('Utilizadores') }}
                     </x-nav-link>
                     <x-nav-link :href="route('favorites.index')" :active="request()->routeIs('favorites.index')">
-                        {{ __('Favorites') }}
+                        {{ __('Favoritos') }}
                     </x-nav-link>
                 </div>
             </div>

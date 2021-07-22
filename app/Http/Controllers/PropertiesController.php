@@ -30,7 +30,7 @@ class PropertiesController extends Controller
      */
     public function create()
     {
-        $users = User::all();
+        $users = User::where('role', '=', 'agent')->get();
 
         return view('properties.create', [
             'users' => $users
@@ -77,8 +77,7 @@ class PropertiesController extends Controller
      */
     public function edit($id)
     {
-        $users = User::all();
-
+        $users = User::where('role', '=', 'agent')->get();
         $property = Property::where('id', $id)->find($id);
 
         return view('properties.edit', [
